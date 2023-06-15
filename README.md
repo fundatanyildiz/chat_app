@@ -18,7 +18,7 @@ $ pip3 install -r requirements.txt
  Install Postgresql as database management systems to store application data. You can check this tutorial to install on
  Mac [https://adamtheautomator.com/install-postgresql-on-mac/](https://adamtheautomator.com/install-postgresql-on-mac/).
 
- After installing the packages and db, first run the 'models.py' file to create database tables:
+ After installing the packages and db, first run the 'models.py' file to create database tables. You need to do this just once.
 
 ```
  $ python3 models.py

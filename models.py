@@ -8,7 +8,7 @@ class Users(db.Model):
     id = Column(Integer, primary_key=True, unique=True, autoincrement=True)
     name = Column(String)
     surname = Column(String)
-    email = Column(String, nullable=False)
+    email = Column(String, nullable=False, unique=True)
     password = Column(String)
 
 
