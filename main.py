@@ -2,17 +2,20 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 import os
 import re
+from flask_login import LoginManager
 
 
 app = Flask(__name__)
 username = os.environ['DB_USERNAME']
 password = os.environ['DB_PASSWORD']
-
+login_manager = LoginManager()
 # Set up the SQLAlchemy Database
+app.config["SECRET_KEY"] = os.environ['SECRET_KEY']
 app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://' + username + ':' + password + '@localhost/postgres'
 db = SQLAlchemy(app)
 # regex for email validation
 regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
+login_manager.init_app(app)
 
 
 def check_email(mail):

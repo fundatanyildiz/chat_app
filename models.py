@@ -1,9 +1,12 @@
 from sqlalchemy import Column, String, Integer
 from main import db, app
 from marshmallow import Schema, fields
+from flask_login import UserMixin
 
 
-class Users(db.Model):
+# UserMixin allows to use methods like is_authenticated(),
+# is_active(), get_id() and is_anonymous()
+class Users(UserMixin, db.Model):
     __table_name__ = 'users'
     id = Column(Integer, primary_key=True, unique=True, autoincrement=True)
     name = Column(String)

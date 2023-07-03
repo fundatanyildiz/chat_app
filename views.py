@@ -1,7 +1,9 @@
 from flask import request, jsonify
 from main import app, db, check_email
 from models import Users, users_schema, user_schema
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import login_required
+
 
 @app.route('/')
 def hello_app():
@@ -44,9 +46,10 @@ def get_users():
 @app.route('/login', methods=["POST"])
 def login():
     email = request.form['email']
+    password = request.form['password']
     test = Users.query.filter_by(email=email).first()
-    if test:
-        return jsonify(message='fff!')
+    if test and check_password_hash(test.password, password):
+        return jsonify(message='User logged in successfully!'), 200
     else:
-        return jsonify(message='The user ')
+        return jsonify(message='User email or password is invalid!'), 403
 
