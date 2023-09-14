@@ -38,4 +38,4 @@ For more details, check the [getting started guide]().
 
 ## Useful Resources
 
-Include here any other links that are relevant for the project, such as more docs, tutorials, and demos.
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://makeapullrequest.com)
